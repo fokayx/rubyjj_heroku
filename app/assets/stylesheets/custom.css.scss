@@ -1,0 +1,153 @@
+%boder-radius {
+  border-radius:10px
+}
+
+.box {
+  @extend %boder-radius;
+  padding: 10px;
+  .list-group {
+    margin: 0;
+    padding: 0 15px;
+  }
+  .list-group-item {
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+body {
+  color: #666;
+  background-color: #ede4cd;
+}
+
+.navbar-default {
+  background-color: #53727d;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+a {
+  color: #777;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #d26e5c;
+}
+
+.badge {
+  padding: 4px 7px;
+  background-color: #db8b7d;
+  top: -2px;
+  position: relative;
+}
+
+.glyphicon {
+  top: 2px
+}
+
+.btn-success {
+  background-color: #69b076;
+  border-color: #88cb7f;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .btn-success.dropdown-toggle {
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+.modal-header, .modal-body, .modal-footer {
+  padding: 15px 25px;
+}
+
+.location_search {
+  background: #fff;
+  padding: 40px 30px 40px 40px !important;
+}
+
+.location_tag {
+  line-height: 32px;
+  font-size: 16px;
+}
+
+.location h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #777;
+  font-weight: normal;
+}
+
+.card{
+ .col-md-4{ 
+  margin-bottom: 20px;
+  padding-right: 5px;
+  }
+}
+
+.hospital_list, .exam_list{
+  height: 375px;
+  background: #fff;
+  font-size: 16px;
+  color: #666;
+  padding: 10px 10px 0px;
+  .table {
+    margin-bottom: 0;
+  }
+  ul {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0px;
+    li {
+      list-style: none;
+      line-height: 24px;
+      margin-bottom: 6px;
+    }
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin: 5px -5px 5px;
+    border-top: 1px dashed #e8d3c7;
+    padding: 10px 5px 0px;
+    color: #db8b7d;
+  }
+  .modal-body .col-md-6 li {
+    background: #e8d3c7;
+    padding: 0 5px;
+    margin: 3px -5px;
+    list-style: none;
+    line-height: 30px;
+  }
+}
+
+.exam_list{
+  height: 200px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 36px;
+  background: #474a4d;
+  color: #d26e5c;
+  padding-top: 9px;
+  p {
+    margin: 0;
+  }
+  a {
+    float: right;
+    margin-left: 10px;
+  }
+}
