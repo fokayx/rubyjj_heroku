@@ -1,8 +1,33 @@
 <footer class="footer">
   <div class="container">
     <p> RubyJJ 紅寶石健檢 ©
-    <a > 聯絡RubyJJ </a>
+    <%= link_to "聯絡 RubyJJ", contacts_path %>
+    <% if false %>
+    <a data-toggle="modal" data-target="#contact">
+      聯絡 RubyJJ
+    </a>
     <%= link_to "服務條款", static_pages_service_path %>
+    <div id="contact" tabindex="-2" role= "dialog" aria-labelledby= "contactLabel" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="model" aria-label="close"><span aria-hidden="true">&times;</span></button>
+            <h2>歡迎與 RubyJJ聯絡</h2>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for @contact do |f| %>
+              <%= f.input :name %>
+              <%= f.input :email %>
+              <%= f.input :message %>
+              <%= f.button :submit %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+        </div>
+        <% end %>
+      </div>
+    </div>
     </p>
   </div>
 </footer>
