@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'static_pages/service'
 
 
+  match '/reserves', to: 'reserves#new', via: 'get'
+  resources :reserves,only: [:new, :create]
+
   match '/contacts', to:'contacts#new', via: 'get'
   resources :contacts, only: [:new, :create]
 

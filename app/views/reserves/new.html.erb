@@ -1,0 +1,9 @@
+<div class="col-md-8 col-md-offset-2"
+<%= simple_form_for @reserve do |f| %>
+  <%= f.input :name, label:"姓名" %>
+  <%= f.input :phone, label: "聯絡電話" %>
+  <%= f.input :email, label:"聯絡電子信箱" %>
+  <p>送出預約，表示您已閱讀並同意 <%= link_to 'RubyJJ的服務條款',static_pages_service_path %></p>
+  <%= f.button :submit ,'我要預約',class:"btn btn-success" %>
+<% end %>
+</div>

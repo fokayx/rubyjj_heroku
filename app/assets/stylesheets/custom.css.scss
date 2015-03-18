@@ -5,6 +5,10 @@ body {
   background-color: #ede4cd;
 }
 
+.container {
+  margin-bottom: 100px;
+}
+
 .navbar-default {
   background-color: #53727d;
 }
@@ -19,7 +23,6 @@ body {
 .navbar-default .navbar-brand:hover {
   color:$link_color;
 }
-
 
 h1 {
   font-size: 24px;
@@ -130,7 +133,7 @@ a:hover, a:focus {
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 36px;
