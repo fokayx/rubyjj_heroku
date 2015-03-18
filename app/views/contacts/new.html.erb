@@ -1,9 +1,9 @@
-<div>
-  <h3>contact us</h3>
+<div class="col-md-8 col-md-offset-2">
+  <h3>歡迎聯絡 RubyJJ紅寶石健檢</h3>
   <%= simple_form_for @contact do |f| %>
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :message %>
-    <%= f.button :submit %>
+    <%= f.input :name, label:'您的稱呼' %>
+    <%= f.input :email, label:'您的聯絡信箱' %>
+    <%= f.input :message, as: :text, label:'您的聯絡訊息' %>
+    <%= f.button :submit, '發出訊息', {class: 'btn btn-success'} %>
   <% end %>
 </div>
