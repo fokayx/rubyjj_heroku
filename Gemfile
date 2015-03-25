@@ -39,6 +39,9 @@ gem 'simple_form'
 
 gem 'recaptcha', :require => "recaptcha/rails"
 
+gem 'devise'
+gem 'font-awesome-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

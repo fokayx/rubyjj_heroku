@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :managers , :path => '', :path_names => {
+    :sign_in => "/dashboard/tekmqbs/login",
+    :sign_out => "/dashboard/tekmqbs/logout"
+  }
   root 'homepages#index'
   resources :searchs
   resources :hospitals
@@ -6,6 +10,7 @@ Rails.application.routes.draw do
   resources :items
   get 'static_pages/service'
 
+  devise_for :users
 
   match '/reserves', to: 'reserves#new', via: 'get'
   resources :reserves,only: [:new, :create]
@@ -13,6 +18,11 @@ Rails.application.routes.draw do
   match '/contacts', to:'contacts#new', via: 'get'
   resources :contacts, only: [:new, :create]
 
+  namespace :dashboard do 
+    namespace :tekmqbs do 
+      resources :hospitals
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
