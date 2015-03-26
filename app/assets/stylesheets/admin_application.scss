@@ -1,0 +1,10 @@
+/*
+ *= require_self
+ *= require ./admin/bootstrap.min.css
+ *= require ./admin/font-awesome.min.css
+ *= require ./admin/ace.min.css
+ *= require ./admin/ace-rtl.min.css
+ *= require ./admin/ace-skins.min.css
+ */
+@import "font-awesome-sprockets";
+@import "font-awesome";

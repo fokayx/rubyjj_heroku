@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do 
     namespace :tekmqbs do 
+      resources :dashboard, only:[:index]
       resources :hospitals
     end
   end
