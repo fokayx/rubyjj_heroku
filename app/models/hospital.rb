@@ -12,7 +12,4 @@ class Hospital < ActiveRecord::Base
     save
   end
 
- # def status
- #   is_online ? "On" : "Off"
- # end
 end

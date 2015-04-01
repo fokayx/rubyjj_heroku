@@ -47,6 +47,6 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
   end
 
   def hospital_params
-    params.require(:hospital).permit(:name, :phone, :address, :area, :web, :location_id)
+    params.require(:hospital).permit(:name, :phone, :address, :area, :web, :location_id, :status)
   end
 end
