@@ -40,6 +40,7 @@ gem 'simple_form'
 gem 'recaptcha', :require => "recaptcha/rails"
 
 gem 'devise'
+gem 'cancancan'
 gem 'font-awesome-sass', '~> 4.3.0'
 
 group :development, :test do

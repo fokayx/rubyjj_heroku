@@ -20,7 +20,7 @@
         <div class="col-xs-6 col-sm-4 col-md-4">
           <%= link_to location.name, hospitals_path(location: location), class: 'location_tag' %>
           <%= content_tag :span, class:'badge' do %>
-            <%= location.hospitals.where(status: "1").count %>
+            <%= location.hospitals.count %>
           <% end %>
         </div>
       <% end %>

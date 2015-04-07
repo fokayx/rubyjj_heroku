@@ -10,6 +10,7 @@
   <%= stylesheet_link_tag    '/adassets/stylesheets/ace-skins.min', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag '/adassets/javascripts/ace-extra.min' %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <%= javascript_include_tag 'admin_application' %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag  %>
 </head>
@@ -20,6 +21,7 @@
     <div class="main-content">
       <%= render 'application/admin_breadcrumb' %>
       <div class="page-content">
+        <%= render 'application/flash' %>
         <%= yield %>
       </div>
     </div>

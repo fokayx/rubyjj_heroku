@@ -4,7 +4,7 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
 
 
   def index
-    @hospitals = Hospital.all
+    @hospitals = Hospital.unscoped.all
   end
 
   def new
@@ -43,7 +43,7 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
   end
 
   def set_hospital
-    @hospital = Hospital.find(params[:id])
+    @hospital = Hospital.unscoped.find(params[:id])
   end
 
   def hospital_params

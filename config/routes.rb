@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :managers , :path => '', :path_names => {
-    :sign_in => "/dashboard/tekmqbs/login",
-    :sign_out => "/dashboard/tekmqbs/logout"
-  }
+#  devise_for :managers , :path => '', :path_names => {
+#    :sign_in => "/dashboard/tekmqbs/login",
+#    :sign_out => "/dashboard/tekmqbs/logout"
+#  }
   root 'homepages#index'
   resources :searchs
-  resources :hospitals
-  resources :exams
+  resources :hospitals do
+    resources :exams
+  end
   resources :items
   get 'static_pages/service'
 
-  devise_for :users
 
   match '/reserves', to: 'reserves#new', via: 'get'
   resources :reserves,only: [:new, :create]
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do 
     namespace :tekmqbs do 
+      devise_for :users, controllers: {sessions: "dashboard/tekmqbs/sessions"}
       resources :dashboard, only:[:index]
       resources :hospitals
     end
