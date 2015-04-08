@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for [:dashboard, :tekmqbs, :hospital, @exam], html: {class:"form-horizontal"} do |f| %>
+      <div class="form-group">
+        <%= f.label :name, '套餐名稱', class:'col-sm-3 control-label  no-padding-right' %>
+        <div class="col-sm-9" >
+          <%= f.text_field :name %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :price ,'套餐費用', class:'col-sm-3 control-label  no-padding-right' %>
+        <div class="col-sm-9" >
+          <%= f.text_field :price %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :gender, '適用性別', class:'col-sm-3 control-label  no-padding-right' %>
+        <div class="col-sm-9" >
+          <%= f.text_field :gender %>
+        </div>
+      </div>
+      <div class="clearfix form-actions">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= f.submit class:'btn btn-info' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

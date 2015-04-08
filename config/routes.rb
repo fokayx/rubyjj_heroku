@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     namespace :tekmqbs do 
       devise_for :users, controllers: {sessions: "dashboard/tekmqbs/sessions"}
       resources :dashboard, only:[:index]
-      resources :hospitals
+      resources :hospitals do
+        resources :exams
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,1 +1,82 @@
-<%= @hospital.name %>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-striped table-bordered table-hover">
+      <tbody>
+        <tr>
+          <td>名稱 :</td>
+          <td>  <%= @hospital.name %></td>
+        </tr>
+        <tr>
+          <td>電話 :</td>
+          <td><%= @hospital.phone %></td>
+        </tr>
+        <tr>
+          <td>地址 :</td>
+          <td><%= @hospital.address %></td>
+        </tr>
+        <tr>
+          <td>網站 :</td>
+          <td><%= @hospital.web %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to '新增套餐', new_dashboard_tekmqbs_hospital_exam_path(@hospital), class:"btn btn-default" %>
+  </div>
+  <div class="col-xs-12">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <td>套餐名稱</td>
+          <td>套餐價錢</td>
+          <td>適用性別</td>
+          <td>檢查項目</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @exams.each do |exam| %>
+          <tr>
+            <td><%= link_to exam.name, dashboard_tekmqbs_hospital_exam_path(@hospital, exam) %></td>
+            <td><%= exam.price %></td>
+            <td><%= exam.gender %></td>
+            <td><%= exam.items.count %></td>
+            <td>
+              <!-- 大螢幕 visible-md, 小螢幕 visible-xs -->
+              <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                <%= link_to edit_dashboard_tekmqbs_hospital_exam_path(@hospital, exam), class:'btn btn-xs btn-success' do %>
+                  <i class="fa fa-edit bigger-120"></i>
+                <% end %>
+              </div>
+              <div class="visible-xs visible-sm hidden-md hidden-lg">
+                <div class="inline position-relative">
+                  <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-cog fa fa-only bigger-110"></i>
+                  </button>
+
+                  <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+
+                    <li>
+                    <%= link_to edit_dashboard_tekmqbs_hospital_exam_path(@hospital, exam), class:'tooltip-susccess', data: {rel:"tooltip"}, title: "Edit" do %>
+                        <span class="green">
+                          <i class="fa fa-edit bigger-120"></i>
+                        </span>
+                      <% end %>
+                    </li>
+
+                    <li>
+                      <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                        <span class="red">
+                          <i class="fa fa-trash bigger-120"></i>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

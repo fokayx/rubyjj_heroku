@@ -12,9 +12,4 @@ class ExamsController < ApplicationController
    # @examitem = @exam.items
   end
 
-  def new
-  end
-
-  def create
-  end
 end

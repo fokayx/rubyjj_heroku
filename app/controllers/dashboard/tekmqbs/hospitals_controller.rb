@@ -32,6 +32,7 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
   end
 
   def show
+    @exams = Hospital.find(params[:id]).exams
   end
 
   private 
