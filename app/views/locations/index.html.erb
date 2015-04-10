@@ -18,7 +18,7 @@
       </div>
       <% @locations.each do |location| %>
         <div class="col-xs-6 col-sm-4 col-md-4">
-          <%= link_to location.name, hospitals_path(location: location), class: 'location_tag' %>
+          <%= link_to location.name, location_hospitals_path(location), class: 'location_tag' %>
           <%= content_tag :span, class:'badge' do %>
             <%= location.hospitals.count %>
           <% end %>

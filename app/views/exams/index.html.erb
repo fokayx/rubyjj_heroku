@@ -4,7 +4,7 @@
 </h1>
 <p class="text-right">
   <span class="glyphicon glyphicon-circle-arrow-left"></span>
-  <%= link_to '回到上一頁', :back %>
+  <%= link_to '回到上一頁', request.referrer %>
 </p>
 <div class="row card">
 <% @exams.each do |exam| %>
@@ -48,18 +48,6 @@
                     <div class="modal-body">
                       <span class="glyphicon glyphicon-list-alt"></span>
                       健檢項目：共 <%= exam.items.count %> 項
-                      <% exam.categories.each do |category| %>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h3><%= category.name %></h3>
-                          </div>
-                          <% exam.items.where(category_id: "#{category.id}").each do |item| %>
-                          <div class="col-xs-6 col-sm-6 col-md-6">
-                            <li><%= item.name %></li>
-                          </div>
-                          <% end %>
-                        </div>
-                      <% end %>
                     </div>
                     <div class="modal-footer">
                       <%= link_to '我要預約',reserves_path, class:"btn btn-success test-right" %>

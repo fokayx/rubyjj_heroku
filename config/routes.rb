@@ -3,10 +3,13 @@ Rails.application.routes.draw do
 #    :sign_in => "/dashboard/tekmqbs/login",
 #    :sign_out => "/dashboard/tekmqbs/logout"
 #  }
-  root 'homepages#index'
-  resources :searchs
-  resources :hospitals do
-    resources :exams
+  root 'locations#index'
+
+  resources :searchs, only: [:index]
+  resources :locations ,only: [:index] do
+    resources :hospitals do
+      resources :exams
+    end
   end
   resources :items
   get 'static_pages/service'
