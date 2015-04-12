@@ -7,10 +7,9 @@ Rails.application.routes.draw do
 
   resources :searchs, only: [:index]
   resources :locations ,only: [:index] do
-    resources :hospitals do
-      resources :exams
-    end
+    resources :hospitals
   end
+  resources :exams
   resources :items
   get 'static_pages/service'
 

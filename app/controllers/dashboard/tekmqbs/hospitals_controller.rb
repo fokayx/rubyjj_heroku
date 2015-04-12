@@ -24,6 +24,9 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
   end
 
   def update
+   # render text:params
+   # return
+
     if @hospital.update(hospital_params)
       redirect_to dashboard_tekmqbs_hospitals_path, notice: '成功修改醫院資料'
     else

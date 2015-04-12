@@ -3,6 +3,7 @@ class Dashboard::Tekmqbs::ExamsController < Dashboard::Tekmqbs::AdminController
 
   def new
     @exam = Exam.new
+    @hospital = Hospital.find(params[:hospital_id])
   end
 
   def create
@@ -32,7 +33,7 @@ class Dashboard::Tekmqbs::ExamsController < Dashboard::Tekmqbs::AdminController
 
   private
   def exam_params
-    params.require(:exam).permit(:name, :price, :gender)
+    params.require(:exam).permit(:name, :price, :gender , :hospital_id, :category => [] )
   end
 
   def set_exam

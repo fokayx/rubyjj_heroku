@@ -52,20 +52,18 @@
             </td>
 
 						<td>
-              <% if hospital.status? %>
-              <span class="label label-sm label-success">
-                on 
-              </span>
-              <% else %>
-              <span class="label label-sm label-warning">
-                off
-              </span>
-              <% end %>
+							<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
+                <% if hospital.status? %>
+                  <%= link_to "on", dashboard_tekmqbs_hospital_path(hospital, hospital:{status: "0"}), method: :patch, class:"btn btn-xs btn-success" %> 
+                <% else %>
+                  <%= link_to "off", dashboard_tekmqbs_hospital_path(hospital, hospital:{status: "1"}), method: :patch, class:"btn btn-xs btn-warning" %>
+                <% end %>
+              </div>
 						</td>
 
 						<td>
 							<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                <%= link_to  edit_dashboard_tekmqbs_hospital_path(hospital),  class:'btn btn-xs btn-success' do %>
+                <%= link_to  edit_dashboard_tekmqbs_hospital_path(hospital),  class:'btn btn-xs btn-info' do %>
 									<i class="fa fa-edit bigger-120"></i>
                 <% end %>
 							</div>

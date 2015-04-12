@@ -36,7 +36,7 @@
       <tbody>
         <% @exams.each do |exam| %>
           <tr>
-            <td><%= link_to exam.name, dashboard_tekmqbs_hospital_exam_path(@hospital, exam) %></td>
+            <td><%= exam.name %></td>
             <td><%= exam.price %></td>
             <td><%= exam.gender %></td>
             <td><%= exam.items.count %></td>
