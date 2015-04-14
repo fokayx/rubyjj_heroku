@@ -25,7 +25,10 @@ Rails.application.routes.draw do
       devise_for :users, controllers: {sessions: "dashboard/tekmqbs/sessions"}
       resources :dashboard, only:[:index]
       resources :hospitals do
-        resources :exams
+        get 'exam', on: :member
+      end
+      resources :exams do 
+        get 'package', on: :member
       end
     end
   end

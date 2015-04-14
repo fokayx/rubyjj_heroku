@@ -2,6 +2,8 @@ class Hospital < ActiveRecord::Base
   has_many :exams
   belongs_to :location
 
+  accepts_nested_attributes_for :exams, allow_destroy: true
+
   default_scope { where(status: true) }
 
   def self.search(search)

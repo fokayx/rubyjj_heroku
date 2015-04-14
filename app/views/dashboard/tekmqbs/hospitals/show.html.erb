@@ -18,9 +18,13 @@
           <td>網站 :</td>
           <td><%= @hospital.web %></td>
         </tr>
+        <tr>
+          <td>上線 :</td>
+          <td><%= @hospital.status %></td>
+        </tr>
       </tbody>
     </table>
-    <%= link_to '新增套餐', new_dashboard_tekmqbs_hospital_exam_path(@hospital), class:"btn btn-default" %>
+    <%= link_to '編輯套餐', exam_dashboard_tekmqbs_hospital_path, class:"btn btn-default" %>
   </div>
   <div class="col-xs-12">
     <table class="table table-striped table-bordered table-hover">
@@ -43,7 +47,7 @@
             <td>
               <!-- 大螢幕 visible-md, 小螢幕 visible-xs -->
               <div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                <%= link_to edit_dashboard_tekmqbs_hospital_exam_path(@hospital, exam), class:'btn btn-xs btn-success' do %>
+                <%= link_to edit_dashboard_tekmqbs_exam_path(exam), class:'btn btn-xs btn-success' do %>
                   <i class="fa fa-edit bigger-120"></i>
                 <% end %>
               </div>
@@ -56,7 +60,7 @@
                   <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
 
                     <li>
-                    <%= link_to edit_dashboard_tekmqbs_hospital_exam_path(@hospital, exam), class:'tooltip-susccess', data: {rel:"tooltip"}, title: "Edit" do %>
+                    <%= link_to edit_dashboard_tekmqbs_exam_path(exam), class:'tooltip-susccess', data: {rel:"tooltip"}, title: "Edit" do %>
                         <span class="green">
                           <i class="fa fa-edit bigger-120"></i>
                         </span>

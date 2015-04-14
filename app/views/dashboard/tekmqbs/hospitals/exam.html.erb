@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1><%= @hospital.name %></h1>
+    <%= form_for [:dashboard, :tekmqbs, @hospital] do |f| %>
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>套餐名稱</th>
+            <th>套餐價錢</th>
+            <th>適用性別</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @exams.each do |exam| %>
+            <%= f.fields_for :exams, exam do |ex| %>
+              <tr>
+                <td> <%= ex.text_field :name %> </td>
+                <td> <%= ex.text_field :price %> </td>
+                <td> <%= ex.text_field :gender %> </td>
+                <td> 
+                  <%= ex.check_box :_destroy %> 
+                  <%= ex.label :_destroy, 'delete' %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+          <%= f.submit '更新套餐', class:'btn btn-info' %>
+        </div>
+      </div>
+      <br/>
+    <% end %>
+    <%= form_for [:dashboard, :tekmqbs, @hospital], html:{class:"form-horizontal"} do |add| %>
+      <%= add.fields_for :exams, @exams.new do |new| %>
+        <div class="form-group">
+          <%= new.label :name, '套餐名稱', class:'col-sm-3 control-label no-padding-right' %>
+          <div class="col-sm-9"><%= new.text_field :name, class:'col-xs-10 col-sm-5' %></div>
+        </div>
+        <div class="form-group">
+          <%= new.label :price, '套餐價錢', class:'col-sm-3 control-label no-padding-right' %>
+          <div class="col-sm-9"><%= new.text_field :price, class:'col-xs-10 col-sm-5' %></div>
+        </div>
+        <div class="form-group">
+          <%= new.label :gender, '適用性別', class:'col-sm-3 control-label no-padding-right' %>
+          <div class="col-sm-9">
+            <%= new.text_field :gender, class:'col-xs-10 col-sm-5' %>
+          </div>
+        </div>
+      <% end %>
+      <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+          <%= add.submit '新增套餐', class:'btn btn-info' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

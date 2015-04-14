@@ -1,5 +1,5 @@
 class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminController
-  before_action :set_hospital, only: [:show, :edit, :update, :destroy]
+  before_action :set_hospital, only: [:show, :edit, :update, :destroy, :exam]
   before_action :select_location, only: [:new, :edit]
 
 
@@ -24,18 +24,22 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
   end
 
   def update
-   # render text:params
-   # return
+  #  render text:params
+  #  return
 
     if @hospital.update(hospital_params)
-      redirect_to dashboard_tekmqbs_hospitals_path, notice: '成功修改醫院資料'
+      redirect_to dashboard_tekmqbs_hospital_path, notice: '成功修改醫院資料'
     else
       render :edit, notice: '修改失敗,請稍後再試'
     end
   end
 
   def show
-    @exams = Hospital.find(params[:id]).exams
+    @exams = @hospital.exams
+  end
+
+  def exam
+    @exams = @hospital.exams
   end
 
   private 
@@ -51,6 +55,8 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
   end
 
   def hospital_params
-    params.require(:hospital).permit(:name, :phone, :address, :area, :web, :location_id, :status)
+    params.require(:hospital).permit(:name, :phone, :address, :area, :web, :location_id, :status,
+      :exams_attributes => [:id, :name, :price, :gender, :_destroy
+      ])
   end
 end
