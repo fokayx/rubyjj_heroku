@@ -1,5 +1,5 @@
 class Dashboard::Tekmqbs::ExamsController < Dashboard::Tekmqbs::AdminController
-  before_action :set_exam, only: [:show, :edit, :update, :destroy]
+  before_action :set_exam, only: [:show, :edit, :update, :destroy, :package]
 
   def new
     @exam = Exam.new
@@ -21,8 +21,10 @@ class Dashboard::Tekmqbs::ExamsController < Dashboard::Tekmqbs::AdminController
   end
 
   def update
+   # render text:params
+   # return
     if @exam.update(exam_params)
-      redirect_to dashboard_tekmqbs_hospital_path(params[:hospital_id]), notice: '成功修改套餐'
+      render :edit, notice: '成功修改套餐'
     else
       render :edit
     end
@@ -31,11 +33,17 @@ class Dashboard::Tekmqbs::ExamsController < Dashboard::Tekmqbs::AdminController
   def show
   end
 
+  def package
+    @packages = Package.new
+    @items = @exam.items
+  end
+
   private
   def exam_params
-    params.require(:exam).permit(:name, :price, :gender , :hospital_id,
-      :packages_attributes => [:id, :category, :item_id, :_destroy
-    ])
+    params.require(:exam).permit(:name, :price, :gender , :hospital_id, :item_ids => [],
+      packages_attributes:[:id, :item_id, :_destroy,
+      item_attributes:[:id, :name, :group, :_destroy]]
+    )
   end
 
   def set_exam

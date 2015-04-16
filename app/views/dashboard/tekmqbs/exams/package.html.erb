@@ -1,0 +1,23 @@
+<%= form_for [:dashboard, :tekmqbs, @exam] do |new| %>
+  <% @items.select(:group).uniq.each do |item| %>
+    <%= item.group %>
+    <% @items.where(group:"#{item.group}").each do |group_item| %>
+      <%= group_item.name %>
+    <% end %>
+    <br>
+    <%= new.collection_check_boxes(:item_ids, Item.where(group:"#{item.group}"), :id, :name)%>
+    <br>
+  <% end %>
+  
+  <%= new.submit  %>
+<% end %>
+<% if false %>
+<%= form_for [:dashboard, :tekmqbs, @exam] do |new| %>
+      <%= new.collection_check_boxes(:item_ids, Item.all, :id, :name) %>
+      <%= new.collection_select( :item_ids, Item.all,  :id, :name) %>
+      <%= new.select :item_ids, options_from_collection_for_select(Item.all, :id, :name) %>
+      <%#= new.grouped_collection_select(:item_ids, Item.all, :group, :group, :id, :name) %>
+      <%#= new.grouped_collection_select(:item_ids, Item.all, :exam,:group, :id, :name )%>
+  <%= new.submit %>
+<% end %>
+<% end %>

@@ -79,29 +79,18 @@
                       <div class="modal-body">
                         <span class="glyphicon glyphicon-list-alt"></span>
                         健檢項目：共 <%= exam.items.count %> 項
-                            <div class="row">
-                          <% exam.items.each do |item| %>
-                              <div class="col-md-6">
-                                <li><%= item.name %></li>
-                              </div>
-                          <% end %>
-                            </div>
-                          <% if false %>
-                        <% exam.categories.each do |category| %>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <h3>
-                                <%= category.name %>
-                              </h3>
-                            </div>
-                            <% exam.items.where(category_id: "#{category.id}").each do |item| %>
-                              <div class="col-md-6">
-                                <li><%= item.name %></li>
-                              </div>
-                            <% end %>
+                        <div class="row">
+                        <% exam.items.select(:group).uniq.each do |u| %>
+                          <div class="col-md-12"> 
+                            <h3><%= u.group %></h3>
                           </div>
+                          <% exam.items.where(group:"#{u.group}").each do |i| %>
+                            <div class="col-md-6">
+                              <li><%= i.name %></li>
+                            </div>
+                          <% end %>
                         <% end %>
-                      <% end %>
+                        </div>
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
