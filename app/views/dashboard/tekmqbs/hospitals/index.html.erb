@@ -24,11 +24,13 @@
 	  					</label>
 	  				</th>
 	  				<th>醫院名稱</th>
-	  				<th>所屬區域</th>
-	  				<th class="hidden-480">套餐數量</th>
-	  				<th class="hidden-480">Status</th>
-
-	  				<th></th>
+            <th class="hidden-480">
+							<div class="visible-md visible-lg visible-sm visible-xs btn-group">
+                所屬區域
+              </div>
+            </th>
+	  				<th>套餐數量</th>
+	  				<th >Status</th>
 	  			</tr>
 	  		</thead>
 		    <tbody>
@@ -42,65 +44,23 @@
 						</td>
 
             <td>
-							<%= link_to hospital.name, dashboard_tekmqbs_hospital_path(hospital) %>
+							<%= link_to hospital.name, edit_dashboard_tekmqbs_hospital_path(hospital) %>
 						</td>
-            <td>
-              <%= hospital.location('#{:id}').name %>
+            <td class="hidden-480">
+							<div class="visible-md visible-lg visible-sm visible-xs btn-group">
+                <%= hospital.location('#{:id}').name %>
+              </div>
             </td>
             <td>
               <%= hospital.exams.count %>
             </td>
 
 						<td>
-							<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                <% if hospital.status? %>
-                  <%= link_to "on", dashboard_tekmqbs_hospital_path(hospital, hospital:{status: "0"}), method: :patch, class:"btn btn-xs btn-success" %> 
-                <% else %>
-                  <%= link_to "off", dashboard_tekmqbs_hospital_path(hospital, hospital:{status: "1"}), method: :patch, class:"btn btn-xs btn-warning" %>
-                <% end %>
-              </div>
-						</td>
-
-						<td>
-							<div class="visible-md visible-lg hidden-sm hidden-xs btn-group">
-                <%= link_to  edit_dashboard_tekmqbs_hospital_path(hospital),  class:'btn btn-xs btn-info' do %>
-									<i class="fa fa-edit bigger-120"></i>
-                <% end %>
-							</div>
-
-							<div class="visible-xs visible-sm hidden-md hidden-lg">
-								<div class="inline position-relative">
-									<button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown">
-										<i class="fa fa-cog fa fa-only bigger-110"></i>
-									</button>
-
-									<ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
-										<li>
-											<a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-												<span class="blue">
-													<i class="fa fa-zoom-in bigger-120"></i>
-												</span>
-											</a>
-										</li>
-
-										<li>
-											<a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-												<span class="green">
-													<i class="fa fa-edit bigger-120"></i>
-												</span>
-											</a>
-										</li>
-
-										<li>
-											<a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-												<span class="red">
-													<i class="fa fa-trash bigger-120"></i>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
+              <% if hospital.status? %>
+                <%= link_to "on", dashboard_tekmqbs_hospital_path(hospital, hospital:{status: "0"}), method: :patch, class:"btn btn-xs btn-success" %> 
+              <% else %>
+                <%= link_to "off", dashboard_tekmqbs_hospital_path(hospital, hospital:{status: "1"}), method: :patch, class:"btn btn-xs btn-warning" %>
+              <% end %>
 						</td>
 					</tr>
         <% end %>

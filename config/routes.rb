@@ -7,10 +7,9 @@ Rails.application.routes.draw do
 
   resources :searchs, only: [:index]
   resources :locations ,only: [:index] do
-    resources :hospitals
+    resources :hospitals, only: [:index]
   end
-  resources :exams
-  resources :items
+  resources :exams, only: [:index]
   get 'static_pages/service'
 
 
@@ -24,10 +23,11 @@ Rails.application.routes.draw do
     namespace :tekmqbs do 
       devise_for :users, controllers: {sessions: "dashboard/tekmqbs/sessions"}
       resources :dashboard, only:[:index]
-      resources :hospitals do
+      resources :hospitals, except: [:show, :destroy] do
         get 'exam', on: :member
+        get 'item', on: :member
       end
-      resources :exams do 
+      resources :exams, only:[:update] do
         get 'package', on: :member
       end
     end

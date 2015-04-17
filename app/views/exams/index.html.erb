@@ -4,7 +4,7 @@
 </h1>
 <p class="text-right">
   <span class="glyphicon glyphicon-circle-arrow-left"></span>
-  <%= link_to '回到上一頁', request.referrer %>
+  <%= link_to '回到上一頁', location_hospitals_path(@hospital.location) %>
 </p>
 <div class="row card">
 <% @exams.each do |exam| %>

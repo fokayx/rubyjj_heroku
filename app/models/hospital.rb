@@ -1,8 +1,10 @@
 class Hospital < ActiveRecord::Base
   has_many :exams
   belongs_to :location
+  has_many :items
 
   accepts_nested_attributes_for :exams, allow_destroy: true
+  accepts_nested_attributes_for :items, allow_destroy: true
 
   default_scope { where(status: true) }
 
