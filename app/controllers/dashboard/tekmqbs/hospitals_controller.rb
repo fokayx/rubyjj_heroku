@@ -5,7 +5,7 @@ class Dashboard::Tekmqbs::HospitalsController < Dashboard::Tekmqbs::AdminControl
 
 
   def index
-    @hospitals = Hospital.unscoped.all
+    @hospitals = Hospital.unscoped.all.page(params[:page]).per(25)
   end
 
   def new
