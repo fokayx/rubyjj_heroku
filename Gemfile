@@ -43,7 +43,11 @@ gem 'devise'
 #gem 'cancancan'
 gem 'font-awesome-sass', '~> 4.3.0'
 
-gem 'kaminari'
+#分頁功能
+gem 'kaminari' 
+
+#Breadcrumb
+gem 'gretel'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

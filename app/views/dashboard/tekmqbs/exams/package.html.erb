@@ -1,6 +1,7 @@
+<% breadcrumb :tekmqbs_exam, @exam %>
 <h2><%= @exam.name %></h2>
-<%= link_to '回上一頁', edit_dashboard_tekmqbs_hospital_path(@exam.hospital) %>
 <%= form_for [:dashboard, :tekmqbs, @exam] do |new| %>
+<%= link_to '回上一頁', edit_dashboard_tekmqbs_hospital_path(@exam.hospital) %>
   <div class="table-responsive">
     <table class="table table-striped table-bordered table-hover">
       <tbody>
