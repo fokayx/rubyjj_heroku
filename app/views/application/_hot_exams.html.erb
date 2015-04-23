@@ -1,0 +1,50 @@
+<div class="row card">
+  <% @hospitals.each do |hospital| %>
+    <div class="col-sm-6 col-md-4 col-lg-4">
+      <div class="hospital_list">
+        <table class="table">
+          <thead>
+            <tr>
+              <td width="46px"> <%= image_tag("ruby_plus.png") %> </td>
+              <td> <%= hospital.name %>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>地址</td>
+              <td> <%= hospital.address %></td>
+            </tr>
+            <tr>
+              <td>電話</td>
+              <td> <%= hospital.phone %></td>
+            </tr>
+            <tr>
+              <td>網站</td>
+              <td> <%= link_to '進入醫院網站', hospital.web, target:"_blank" %></td>
+            </tr>
+            <tr>
+              <td>健檢</td>
+              <td>熱門套餐
+                <ul>
+                  <% hospital.exams.order("rand()").limit(4).each do |exam| %>
+                    <li>
+                      <%= content_tag :a, data: {toggle: "modal", target:"\#m#{exam.id}"} do %>
+                        <%= exam.name[0..11] %>
+                        <span class="glyphicon glyphicon-collapse-down" aria-hiddent="true" style="color:#d26e5c"></span>
+                      <% end %>
+                    </li>
+                    <%= render 'exam_items', exam: exam %>
+                  <% end %>
+                  <li>
+                    <%= link_to '查看更多', exams_path(hospital: hospital.id) %>
+                    <span class="glyphicon glyphicon-collapse-down", style="color:#d26e5c"></span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>

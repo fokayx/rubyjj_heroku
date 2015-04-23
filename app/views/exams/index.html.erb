@@ -36,9 +36,7 @@
                   共 <%= exam.items.count %> 項
                 <span class="glyphicon glyphicon-modal-window" aria-hidden="true" style="color:#d26e5c"></span>
               <% end %>
-              <%= content_tag :div,id:"m#{exam.id}", tabindex:"-1", role:"dialog",aria: {labelledby:"m#{exam.id}Label", hidden:"true"} , class:"modal fade" do %>
-                <% render 'exam_items', exam: exam  %>
-              <% end %>
+              <%= render 'exam_items', exam: exam %>
             </td>
           </tr>
           <!--
