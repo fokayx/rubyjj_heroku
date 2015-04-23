@@ -1,13 +1,13 @@
 <% breadcrumb :root %>
 <div class="row">
-  <div class="col-md-5 text-center col-md-offset-1 location">
+  <div class="col-xs-12 col-sm-5 col-md-5 text-center col-md-offset-1 location">
     <%= image_tag("locations.png") %>
     <br/>
     <h1>
       台灣健康檢查比較台
     </h1>
   </div>
-  <div class="col-md-5 location_search">
+  <div class="col-xs-8 col-sm-6 col-md-5 col-xs-offset-2 col-sm-offset-0 col-md-offset-0 location_search">
     <div class="row">
       <div class="col-md-12 ">
         <%= form_tag searchs_path, :method => 'get' do %>

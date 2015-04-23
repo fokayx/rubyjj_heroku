@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .navbar-default {
@@ -62,9 +62,14 @@ a:hover, a:focus {
   padding: 15px 25px;
 }
 
+.location {
+  margin-top: 40px;
+}
+
 .location_search {
   background: #fff;
   padding: 40px 30px 40px 40px !important;
+  margin-top: 40px;
 }
 
 .location_tag {
@@ -85,6 +90,7 @@ a:hover, a:focus {
   padding-right: 5px;
   }
 }
+
 
 .hospital_list, .exam_list{
   height: 375px;
@@ -128,6 +134,17 @@ a:hover, a:focus {
   }
 }
 
+.dropdown-menu {
+  border: none;
+}
+.dropdown-menu > .list-group-item{
+  margin-bottom: -1px;
+  a {
+    color: #666;
+    display: initial;
+    padding: 0;
+  }
+}
 .exam_list{
   height: 200px;
 }
@@ -147,4 +164,8 @@ a:hover, a:focus {
     float: right;
     margin-left: 10px;
   }
+}
+
+.breadcrumb {
+  background-color: transparent;
 }

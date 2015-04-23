@@ -6,6 +6,13 @@
       RubyJJ
       </a>
     </div>
+    <% if dashboard_tekmqbs_user_signed_in? %>
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "小健健", dashboard_tekmqbs_hospitals_path %></li>
+          <li><%= link_to '登出', destroy_dashboard_tekmqbs_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </nav>
-<%= breadcrumbs pretext: "here", display_single_fragment: true, style: :bootstrap, link_current: true %>

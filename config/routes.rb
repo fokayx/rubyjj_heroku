@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :exams, only: [:index]
   get 'static_pages/service'
 
-
   match '/reserves', to: 'reserves#new', via: 'get'
   resources :reserves,only: [:new, :create]
 
