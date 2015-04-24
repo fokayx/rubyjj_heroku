@@ -4,6 +4,7 @@
     <%= f.input :name, label:'您的稱呼' %>
     <%= f.input :email, label:'您的聯絡信箱' %>
     <%= f.input :message, as: :text, label:'您的聯絡訊息' %>
+    <%= recaptcha_tags  :display => {theme: 'white'} %>
     <%= f.button :submit, '發出訊息', {class: 'btn btn-success'} %>
   <% end %>
 </div>
