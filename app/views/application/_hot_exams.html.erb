@@ -26,7 +26,7 @@
               <td>健檢</td>
               <td>熱門套餐
                 <ul>
-                  <% hospital.exams.order("rand()").limit(4).each do |exam| %>
+                  <% hospital.exams.order("random()").limit(4).each do |exam| %>
                     <li>
                       <%= content_tag :a, data: {toggle: "modal", target:"\#m#{exam.id}"} do %>
                         <%= exam.name[0..11] %>
