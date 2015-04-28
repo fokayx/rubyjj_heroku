@@ -8,11 +8,17 @@
       <% @items.select(:group).uniq.each do |item| %>
         <tr>
           <td style="width:46px">類別</td>
-          <td><%= item.group %></td>
+          <td>
+            <%= item.group %></td>
         </tr>
         <tr>
           <td>項目</td>
-          <td><%= new.collection_check_boxes(:item_ids, Item.where(group:"#{item.group}"), :id, :name) %></td>
+          <td>
+            <fieldset>
+              <input type="checkbox"  class="checkall"> 全選 | 
+              <%= new.collection_check_boxes(:item_ids, Item.where(group:"#{item.group}"), :id, :name) %>
+            </fieldset>
+          </td>
         </tr>
       <% end %>
       </tbody>
@@ -24,3 +30,11 @@
     </div>
   </div>
 <% end %>
+
+<script type='text/javascript'>
+  $(function () {
+      $('.checkall').on('click', function () {
+          $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+      });
+  });
+</script>
