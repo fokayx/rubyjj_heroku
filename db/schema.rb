@@ -13,66 +13,69 @@
 
 ActiveRecord::Schema.define(version: 20150416100243) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "exams", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "price",       limit: 4
+    t.string   "name"
+    t.integer  "price"
     t.string   "gender",      limit: 2
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "hospital_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "hospital_id"
   end
 
   create_table "hospitals", force: :cascade do |t|
-    t.string  "name",        limit: 255
-    t.string  "address",     limit: 255
-    t.string  "area",        limit: 255
-    t.string  "phone",       limit: 255
-    t.string  "web",         limit: 255
-    t.integer "location_id", limit: 4
-    t.boolean "status",      limit: 1,   default: false
+    t.string  "name"
+    t.string  "address"
+    t.string  "area"
+    t.string  "phone"
+    t.string  "web"
+    t.integer "location_id"
+    t.boolean "status",      default: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "group",       limit: 255
-    t.integer  "hospital_id", limit: 4
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "group"
+    t.integer  "hospital_id"
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
   end
 
   create_table "packages", force: :cascade do |t|
-    t.integer  "exam_id",    limit: 4
-    t.integer  "item_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "exam_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "packages", ["exam_id"], name: "index_packages_on_exam_id", using: :btree
   add_index "packages", ["item_id"], name: "index_packages_on_item_id", using: :btree
 
   create_table "reserves", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "phone",      limit: 255
-    t.string   "email",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
