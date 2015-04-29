@@ -4,16 +4,16 @@
     <%= image_tag("locations.png") %>
     <br/>
     <h1>
-      台灣健康檢查比較台
+      台灣健康檢查醫院搜尋
     </h1>
   </div>
   <div class="col-xs-8 col-sm-6 col-md-5 col-xs-offset-2 col-sm-offset-0 col-md-offset-0 location_search">
     <div class="row">
       <div class="col-md-12 ">
         <%= form_tag searchs_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], placeholder:'輸入關鍵字', class:'form-control', style: 'width: 100%; height: 44px' %>
+          <%= text_field_tag :search, params[:search], placeholder:'輸入醫院名稱', class:'form-control', style: 'width: 100%; height: 44px' %>
           <br/>
-          <%= submit_tag "全 站 搜 尋", :name => nil, class:'btn btn-success', style: 'width: 100%; height: 44px' %>
+          <%= submit_tag "醫 院 搜 尋", :name => nil, class:'btn btn-success', style: 'width: 100%; height: 44px' %>
         <% end %>
       <br/>
       </div>
