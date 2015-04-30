@@ -16,7 +16,7 @@
           <td>
             <fieldset>
               <input type="checkbox"  class="checkall"> 全選 | 
-              <%= new.collection_check_boxes(:item_ids, Item.where(group:"#{item.group}"), :id, :name) %>
+              <%= new.collection_check_boxes(:item_ids, @items.where(group:"#{item.group}"), :id, :name) %>
             </fieldset>
           </td>
         </tr>
