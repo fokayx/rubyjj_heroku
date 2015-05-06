@@ -36,7 +36,7 @@
                     <%= render 'exam_items', exam: exam %>
                   <% end %>
                   <li>
-                    <%= link_to '查看更多', exams_path(hospital: hospital.id) %>
+                    <%= link_to '查看更多', exams_path(hospital: hospital.slug) %>
                     <span class="glyphicon glyphicon-collapse-down", style="color:#d26e5c"></span>
                   </li>
                 </ul>

@@ -48,6 +48,10 @@ gem 'kaminari'
 #Breadcrumb
 gem 'gretel'
 
+#friendly_id 標題網址，babosa中文嘛耶通網址
+gem 'friendly_id'
+gem 'babosa'
+
 gem 'pg'
 gem 'rails_12factor'
 
