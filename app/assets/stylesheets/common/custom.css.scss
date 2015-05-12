@@ -9,6 +9,11 @@ body {
   margin-bottom: 50px;
 }
 
+@media (min-width: 1200px){
+  .container {
+    width: 1270px;
+  }
+}
 .navbar-default {
   background-color: #53727d;
 }
